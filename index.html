@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MelodyKids - Interactive Music Learning Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Bubblegum+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">🎵</span>
+                <span class="logo-text">MelodyKids</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#learn" class="nav-link">Learn</a></li>
+                <li><a href="#games" class="nav-link">Games</a></li>
+                <li><a href="#videos" class="nav-link">Videos</a></li>
+                <li><a href="#progress" class="nav-link">My Progress</a></li>
+            </ul>
+            <div class="user-stats">
+                <span class="coins">💰 <span id="coinCount">0</span></span>
+                <span class="level">⭐ Level <span id="userLevel">1</span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">Learn Music the Fun Way! 🎶</h1>
+                <p class="hero-subtitle">Join thousands of kids learning music through games, videos, and interactive lessons!</p>
+                <button class="cta-button" onclick="scrollToSection('learn')">Start Learning Now!</button>
+            </div>
+            <div class="hero-character">
+                <div class="character-anime"></div>
+            </div>
+        </div>
+        <div class="floating-notes">
+            <span class="note">♪</span>
+            <span class="note">♫</span>
+            <span class="note">♪</span>
+            <span class="note">♫</span>
+        </div>
+    </section>
+
+    <!-- Learning Modules Section -->
+    <section id="learn" class="learning-section">
+        <h2 class="section-title">🎓 Learning Modules</h2>
+        <div class="modules-grid">
+            <div class="module-card" data-module="rhythm">
+                <div class="module-icon">🥁</div>
+                <h3>Rhythm Master</h3>
+                <p>Learn to keep the beat and understand rhythm patterns</p>
+                <div class="module-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 30%"></div>
+                    </div>
+                    <span class="progress-text">30% Complete</span>
+                </div>
+                <button class="module-button" onclick="openModule('rhythm')">Start Learning</button>
+            </div>
+
+            <div class="module-card" data-module="pitch">
+                <div class="module-icon">🎤</div>
+                <h3>Pitch Perfect</h3>
+                <p>Discover high and low sounds and train your ears</p>
+                <div class="module-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 15%"></div>
+                    </div>
+                    <span class="progress-text">15% Complete</span>
+                </div>
+                <button class="module-button" onclick="openModule('pitch')">Start Learning</button>
+            </div>
+
+            <div class="module-card" data-module="notes">
+                <div class="module-icon">🎼</div>
+                <h3>Note Navigator</h3>
+                <p>Learn musical notes and how to read sheet music</p>
+                <div class="module-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 45%"></div>
+                    </div>
+                    <span class="progress-text">45% Complete</span>
+                </div>
+                <button class="module-button" onclick="openModule('notes')">Start Learning</button>
+            </div>
+
+            <div class="module-card" data-module="instruments">
+                <div class="module-icon">🎸</div>
+                <h3>Instrument Explorer</h3>
+                <p>Discover different instruments and their sounds</p>
+                <div class="module-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 60%"></div>
+                    </div>
+                    <span class="progress-text">60% Complete</span>
+                </div>
+                <button class="module-button" onclick="openModule('instruments')">Start Learning</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Games Section -->
+    <section id="games" class="games-section">
+        <h2 class="section-title">🎮 Music Games</h2>
+        <div class="games-grid">
+            <div class="game-card" onclick="openGame('rhythm-clicker')">
+                <div class="game-thumbnail rhythm-game"></div>
+                <h3>Rhythm Clicker</h3>
+                <p>Click in time with the music!</p>
+                <div class="game-stats">
+                    <span>🏆 High Score: <span id="rhythmHighScore">0</span></span>
+                </div>
+            </div>
+
+            <div class="game-card" onclick="openGame('note-catcher')">
+                <div class="game-thumbnail note-game"></div>
+                <h3>Note Catcher</h3>
+                <p>Catch the falling musical notes!</p>
+                <div class="game-stats">
+                    <span>🏆 High Score: <span id="noteHighScore">0</span></span>
+                </div>
+            </div>
+
+            <div class="game-card" onclick="openGame('instrument-quiz')">
+                <div class="game-thumbnail quiz-game"></div>
+                <h3>Instrument Quiz</h3>
+                <p>Guess the instrument from its sound!</p>
+                <div class="game-stats">
+                    <span>🏆 High Score: <span id="quizHighScore">0</span></span>
+                </div>
+            </div>
+
+            <div class="game-card" onclick="openGame('melody-maker')">
+                <div class="game-thumbnail melody-game"></div>
+                <h3>Melody Maker</h3>
+                <p>Create your own music!</p>
+                <div class="game-stats">
+                    <span>🎵 Songs Created: <span id="songsCreated">0</span></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Videos Section -->
+    <section id="videos" class="videos-section">
+        <h2 class="section-title">📺 Learning Videos</h2>
+        <div class="videos-grid">
+            <div class="video-card">
+                <div class="video-thumbnail">
+                    <iframe width="100%" height="200" src="https://www.youtube.com/embed/zdBc1FzeKso"
+ title="Music Basics" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <h3>Introduction to Music</h3>
+                <p>Learn the basics of music in a fun way!</p>
+            </div>
+
+            <div class="video-card">
+                <div class="video-thumbnail">
+                    <iframe width="100%" height="200" src="https://www.youtube.com/embed/jYkT0hGTYJM" title="Rhythm Tutorial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <h3>Understanding Rhythm</h3>
+                <p>Discover how rhythm works in music</p>
+            </div>
+
+            <div class="video-card">
+                <div class="video-thumbnail">
+                    <iframe width="100%" height="200" src="https://www.youtube.com/embed/3ogepZsCnbY"title="Musical Instruments" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <h3>Musical Instruments Tour</h3>
+                <p>Explore different musical instruments</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Progress Section -->
+    <section id="progress" class="progress-section">
+        <h2 class="section-title">📊 My Progress</h2>
+        <div class="progress-container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">⭐</div>
+                    <div class="stat-info">
+                        <h3 id="totalStars">42</h3>
+                        <p>Total Stars</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🏆</div>
+                    <div class="stat-info">
+                        <h3 id="achievementsCount">8</h3>
+                        <p>Achievements</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📚</div>
+                    <div class="stat-info">
+                        <h3 id="lessonsCompleted">15</h3>
+                        <p>Lessons Done</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🎯</div>
+                    <div class="stat-info">
+                        <h3 id="streakDays">7</h3>
+                        <p>Day Streak</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="achievements-section">
+                <h3>🏅 Recent Achievements</h3>
+                <div class="achievements-grid">
+                    <div class="achievement-badge unlocked">
+                        <div class="badge-icon">🎵</div>
+                        <p>First Note</p>
+                    </div>
+                    <div class="achievement-badge unlocked">
+                        <div class="badge-icon">🥁</div>
+                        <p>Rhythm Rookie</p>
+                    </div>
+                    <div class="achievement-badge unlocked">
+                        <div class="badge-icon">🎼</div>
+                        <p>Note Reader</p>
+                    </div>
+                    <div class="achievement-badge locked">
+                        <div class="badge-icon">🎸</div>
+                        <p>Guitar Hero</p>
+                    </div>
+                    <div class="achievement-badge locked">
+                        <div class="badge-icon">🎹</div>
+                        <p>Piano Master</p>
+                    </div>
+                    <div class="achievement-badge locked">
+                        <div class="badge-icon">👑</div>
+                        <p>Music King</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Module Modal -->
+    <div id="moduleModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal()">&times;</span>
+            <div id="moduleContent"></div>
+        </div>
+    </div>
+
+    <!-- Game Modal -->
+    <div id="gameModal" class="modal">
+        <div class="modal-content game-modal-content">
+            <span class="close-button" onclick="closeGameModal()">&times;</span>
+            <div id="gameContent"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 MelodyKids - Interactive Music Learning Platform</p>
+            <p>Making Music Education Fun for Every Child! 🎶</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
